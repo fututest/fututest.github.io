@@ -1,56 +1,150 @@
-extends base
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Archiv | futu-test</title>
+  <meta name="author" content="futu-test">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-block title
-  if page.category
-     title= page.category + " | " + config.title
-  if page.tag
-     title= page.tag + " | " + config.title
-  if page.archive
-     title= __('archive') + " | " + config.title
+  
+  <meta property="og:site_name" content="futu-test"/>
 
-block main
-  // Blog title and subtitle
-  header.wrapper.header
-    .container.blog-title
-      a#logo.title(href=url_for('.'))= config.title
-      span.subtitle= config.subtitle
-      label#toggle-menu(for="menu", onclick)
-        i.fa.fa-bars
-    // use checkbox hack for toggle nav-bar on small screens
-    input#menu(type="checkbox")
-    .container.nav-items
-      each nav, name in theme.menu
-        +a_with_current(nav, __(name))
+  
+    <meta property="og:image" content="undefined"/>
+  
 
-  article.wrapper
-    .post-entry
-      if page.category || page.tag
-          h1.label-title=  (page.category || page.tag)
-      .post
-        // show all categories and tags
-        if !(page.category || page.tag)
-            .all-categories
-              ul.tag-box.list-unstyled
-                for category in site.categories.sort('name').toArray()
-                  li
-                    a(href=root+'categories/'+category.name)= category.name
-                      span= category.posts.length
-            .all-tags
-              ul.tag-box.list-unstyled
-                for tag in site.tags.sort('name').toArray()
-                  li
-                    a(href=root+'tags/'+tag.name)= tag.name
-                      span= tag.posts.length
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="futu-test" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
 
-        .post-archive
-            //Use lodash to classify posts. See https://lodash.com/docs#groupBy
-            each posts, year in _.groupBy(page.posts.toArray(), function(p){return -p.date.format('YYYY')})
-              h2= -year
-              ul.listing
-                for post in posts
-                  li
-                    span.date= post.date.format('YYYY/MM/DD')
-                    a(href=url_for(post.path), title=post.title)
-                      = post.title
+</head>
 
-  include _partial/paginator.jade
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">futu-test</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title">Archiv</h2>
+
+
+  <div class="archive">
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2016-11-21T04:55:46.000Z"><a href="/2016/11/21/6/">2016-11-21</a></time>
+            
+              <h1 class="title"><a href="/2016/11/21/6/">6</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2016-11-21T04:49:29.000Z"><a href="/2016/11/21/5/">2016-11-21</a></time>
+            
+              <h1 class="title"><a href="/2016/11/21/5/">5</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2016-11-21T04:43:24.000Z"><a href="/2016/11/21/3/">2016-11-21</a></time>
+            
+              <h1 class="title"><a href="/2016/11/21/3/">3</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2016-11-18T09:38:29.000Z"><a href="/2016/11/18/2/">2016-11-18</a></time>
+            
+              <h1 class="title"><a href="/2016/11/18/2/">2</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2016-11-18T06:24:59.690Z"><a href="/2016/11/18/hello-world/">2016-11-18</a></time>
+            
+              <h1 class="title"><a href="/2016/11/18/hello-world/">Hello World</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+  </div>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Suche">
+    <input type="hidden" name="q" value="site:fututest.github.io">
+  </form>
+</div>
+
+  
+
+  
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 futu-test
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
