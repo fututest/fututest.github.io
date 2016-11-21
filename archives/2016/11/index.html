@@ -1,138 +1,56 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>Archives: 2016/11 | futu-test</title>
-  <meta name="author" content="futu-test">
+extends base
 
-  
-  
+block title
+  if page.category
+     title= page.category + " | " + config.title
+  if page.tag
+     title= page.tag + " | " + config.title
+  if page.archive
+     title= __('archive') + " | " + config.title
 
-  <link rel="alternate" href="/atom.xml" title="futu-test" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-  
-</head>
+block main
+  // Blog title and subtitle
+  header.wrapper.header
+    .container.blog-title
+      a#logo.title(href=url_for('.'))= config.title
+      span.subtitle= config.subtitle
+      label#toggle-menu(for="menu", onclick)
+        i.fa.fa-bars
+    // use checkbox hack for toggle nav-bar on small screens
+    input#menu(type="checkbox")
+    .container.nav-items
+      each nav, name in theme.menu
+        +a_with_current(nav, __(name))
 
-<body>
-  <header id="header" class="inner"><nav>
-  <ul>
-    
-      <li><a href="/">Home</a></li>
-    
-      <li><a href="/archives">Archives</a></li>
-    
-  </ul>
-</nav></header>
-  <div id="content" class="inner">
+  article.wrapper
+    .post-entry
+      if page.category || page.tag
+          h1.label-title=  (page.category || page.tag)
+      .post
+        // show all categories and tags
+        if !(page.category || page.tag)
+            .all-categories
+              ul.tag-box.list-unstyled
+                for category in site.categories.sort('name').toArray()
+                  li
+                    a(href=root+'categories/'+category.name)= category.name
+                      span= category.posts.length
+            .all-tags
+              ul.tag-box.list-unstyled
+                for tag in site.tags.sort('name').toArray()
+                  li
+                    a(href=root+'tags/'+tag.name)= tag.name
+                      span= tag.posts.length
 
-<header id="archive-header">
-  <h1 class="alignleft">Archives: 2016/11</h1>
-  <div class="search alignright">
-    <form action="http://google.com/search" method="get" accept-charset="utf-8">
-      <input type="search" name="q" results="0" placeholder="Search">
-      <input type="hidden" name="q" value="site:fututest.github.io">
-    </form>
-  </div>
-</header>
+        .post-archive
+            //Use lodash to classify posts. See https://lodash.com/docs#groupBy
+            each posts, year in _.groupBy(page.posts.toArray(), function(p){return -p.date.format('YYYY')})
+              h2= -year
+              ul.listing
+                for post in posts
+                  li
+                    span.date= post.date.format('YYYY/MM/DD')
+                    a(href=url_for(post.path), title=post.title)
+                      = post.title
 
-
-  
-  
-    
-    
-      
-      </section><section class="archives"><div class="year">2016</div>
-    
-    <article class="archive">
-      <h1 class="title"><a href="/2016/11/21/6/">6</a></h1>
-      <footer>
-        <time datetime="2016-11-21T04:55:46.000Z">Nov 21</time>
-        
-        
-      </footer>
-    </article>
-  
-    
-    
-    <article class="archive">
-      <h1 class="title"><a href="/2016/11/21/5/">5</a></h1>
-      <footer>
-        <time datetime="2016-11-21T04:49:29.000Z">Nov 21</time>
-        
-        
-      </footer>
-    </article>
-  
-    
-    
-    <article class="archive">
-      <h1 class="title"><a href="/2016/11/21/3/">3</a></h1>
-      <footer>
-        <time datetime="2016-11-21T04:43:24.000Z">Nov 21</time>
-        
-        
-      </footer>
-    </article>
-  
-    
-    
-    <article class="archive">
-      <h1 class="title"><a href="/2016/11/18/2/">2</a></h1>
-      <footer>
-        <time datetime="2016-11-18T09:38:29.000Z">Nov 18</time>
-        
-        
-      </footer>
-    </article>
-  
-    
-    
-    <article class="archive">
-      <h1 class="title"><a href="/2016/11/18/hello-world/">Hello World</a></h1>
-      <footer>
-        <time datetime="2016-11-18T06:24:59.690Z">Nov 18</time>
-        
-        
-      </footer>
-    </article>
-  
-</div>
-  <footer id="footer" class="inner"><div class="social alignright">
-  
-  
-  
-  
-  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
-</div>
-<p>
-  
-  &copy; 2016 futu-test
-  
-</p>
-<div class="clearfix"></div></footer>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-
-
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
-</script>
-
-
-<div id="phasebeam">
-  <canvas></canvas>
-  <canvas></canvas>
-  <canvas></canvas>
-</div>
-<script src="/js/phasebeam.js"></script>
-</body>
-</html>
+  include _partial/paginator.jade

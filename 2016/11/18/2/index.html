@@ -1,106 +1,36 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>2 | futu-test</title>
-  <meta name="author" content="futu-test">
+extends base
 
-  
-  <meta name="description" content="jklasjgflajlfjaljdflaljj
-slkdajl">
-  
-  
+block title
+  title= page.title + " | " + config.title
 
-  <link rel="alternate" href="/atom.xml" title="futu-test" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-  
-</head>
+block main
 
-<body>
-  <header id="header" class="inner"><nav>
-  <ul>
-    
-      <li><a href="/">Home</a></li>
-    
-      <li><a href="/archives">Archives</a></li>
-    
-  </ul>
-</nav></header>
-  <div id="content" class="inner"><article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title">2</h1>
-  
+  // gallery that comes before the header
+  if page.photos
+     if page.photos.length
+      .article-gallery
+        .article-gallery-photos.container
+          for photo in page.photos
+            a.article-gallery-img.fancybox(href=url_for(photo), rel="gallery_" + page._id)
+              img(src=url_for(photo), itemprop="image")
 
-    <time datetime="2016-11-18T09:38:29.000Z">
-  <span class="day">18</span><span class="month">Nov</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>jklasjgflajlfjaljdflaljj</p>
-<h3 id="slkdajl"><a href="#slkdajl" class="headerlink" title="slkdajl"></a>slkdajl</h3>
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-  </div>
-  
-</article></div>
-  <footer id="footer" class="inner"><div class="social alignright">
-  
-  
-  
-  
-  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
-</div>
-<p>
-  
-  &copy; 2016 futu-test
-  
-</p>
-<div class="clearfix"></div></footer>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
+  article.wrapper
+    .post-main
+      .nav
+        nav.container
+          each nav, name in theme.menu
+            +a_with_current(nav, __(name))
+        .container.post-meta
+          if (page.tags && page.tags.length)
+            .post-tags
+              != list_tags(page.tags, {show_count: false, class: 'post-tag', style:'none', separator:''})
+          .post-time= page.date.format(config.date_format)
 
+      .container.post-header
+        h1: = page.title
 
+      .container.post-content
+        != page.content
 
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
-</script>
-
-
-<div id="phasebeam">
-  <canvas></canvas>
-  <canvas></canvas>
-  <canvas></canvas>
-</div>
-<script src="/js/phasebeam.js"></script>
-</body>
-</html>
+    .post-main.post-comment
+      include _partial/comments
