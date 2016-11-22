@@ -6,7 +6,8 @@
   <title>难忘的Bug经历 | FUTU-TEST</title>
   <meta name="author" content="futu-test">
   
-  <meta name="description" content="test">
+  <meta name="description" content="需求：在市场Tab列表新增一列我的自选股，首次出现默认该Tab在第一位。
+    测试用例里有覆盖移动，调整位置，本身是个很简单的需求。    发现问题的思路：        1.分析开发特征，新手开发，容易出现边界值等常见bug。        2.设计用例：            不能光是移">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -61,7 +62,8 @@
     </header>
     <div class="entry">
       
-        <p>   test</p>
+        <pre><code>需求：在市场Tab列表新增一列我的自选股，首次出现默认该Tab在第一位。
+</code></pre><p>    测试用例里有覆盖移动，调整位置，本身是个很简单的需求。<br>    发现问题的思路：<br>        1.分析开发特征，新手开发，容易出现边界值等常见bug。<br>        2.设计用例：<br>            不能光是移动位置，尝试移动新增Tab到最前最后位置，退出后再打开。<br>            移动后，尝试确认其他Tab，特别是原来在最前最后位置的Tab是否正确。<br>        3.测试结果：<br>            不出所料，新tab移动、退出后打开，是没问题的。<br>            然而，移动+点击旧tab，程序崩溃了。<br>        4.问题分析：新增Tab后未考虑移动场景，导致移动后切Tab崩溃。<br>    感触：<br>    新人做开发，写的代码会出现许多预料之内的Bug，是曾经开发同学经常会踩的坑，so,这是一次意料之内的bug，但印象深刻，毕竟totally under control，哈哈。</p>
 
       
     </div>
