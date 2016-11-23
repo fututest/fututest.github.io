@@ -47,76 +47,21 @@
 <h2 class="archive-title">2017/11</h2>
 
 
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-11-21T13:26:10.000Z"><a href="/2017/11/21/难忘的Bug经历/">2017-11-21</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/11/21/难忘的Bug经历/">难忘的Bug经历</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2 id="MAC市场新增Tab发现Bug分享"><a href="#MAC市场新增Tab发现Bug分享" class="headerlink" title="MAC市场新增Tab发现Bug分享"></a>MAC市场新增Tab发现Bug分享</h2><p><strong>需求分析</strong></p>
-<pre><code>在市场Tab列表新增一列我的自选股，首次出现默认该Tab在第一位。
-</code></pre><p><strong>测试分析</strong></p>
-<pre><code>测试用例里有覆盖移动，调整位置，本身是个很简单的需求。
-</code></pre><p><strong>发现问题的思路</strong></p>
-<pre><code>1.分析开发特征，新手开发，容易出现边界值等常见bug。
-
-2.设计用例：
-不能光是移动位置，尝试移动新增Tab到最前最后位置，退出后再打开。
-移动后，尝试确认其他Tab，特别是原来在最前最后位置的Tab是否正确。
-
-3.测试结果：
-不出所料，新tab移动、退出后打开，是没问题的。
-然而，移动+点击旧tab，程序崩溃了。
-
-4.问题分析：新增Tab后未考虑移动场景，导致移动后切Tab崩溃。
-</code></pre><p><strong>- 感触：</strong></p>
-<pre><code>新人做开发，写的代码会出现许多预料之内的Bug，是曾经开发同学经常会踩的坑，so,
-这是一次意料之内的bug.但印象深刻，毕竟totally under control，哈哈。                                                                                                                                                                                                                                                                 
-</code></pre><hr>
-<p>行情卡顿                                                                                                                                                                                                                                                                      </p>
-<ol>
-<li>Bug描述：<br>新版本更新后，交易员和客户反映，在出现行情波动较大的时候，个股行情会出现卡顿现象。                                                                                                                                                                                            </li>
-<li>Bug确认过程：<br>1)      由于行情的随机性，并不能对问题进行复现。<br>2)      随后采用录屏软件，录制每天的行情变动，根据交易员反馈的卡顿时间，查看录制文件观察现象。<br>3)      最初由于观察卡顿的界面布局与交易员的并不一致。一个屏幕和四个屏幕的区别。记录卡顿的时间与实际时间存在一定的偏差。<br>4)      再后来，搭建了与交易员相同的环境，进行观测。当时真心不知道在哪里能找到卡顿，要看整个录制的视频文件，太痛苦了。<br>5)      随着一天天与交易员的熟悉，与视频的观看规律查找。终于发现了一个规律：在出现连续上涨、下跌1分k线波动较大的时候，会出现时钟静止不动的情况。                                                                                                                              </li>
-<li>bug验证：<br>1)      发现规律后，一切就顺当了。在随后的一个个版本修复之后，再拿到搭建的环境上进行观察测试。<br>2)      确实有了改善，目前也没有收到交易员的反馈。但比对性不强，不能确定比之前好了多少。                                                                                                                                                                                      </li>
-<li>感受：<br><span style="color:green;font-weight:bold"><br>1)      当出现问题时，要了解用户真正的场景，找相似性，找规律，才能更好的将问题重现。便于定位和解决。<br></span>                                                                                                                                                                                                                                                                       <span style="color:green;font-weight:bold"><br>2)      要是有一个可以进行行情回放的功能，就可以在相同的条件下，看到到底优化了多少了。只是测试的条件都是一步步慢慢推进的。<br></span>                                                                                                                                       </li>
-</ol>
-<hr>
-<p>H5界面功能不兼容<br>1、 需求：<br>    新增一个H5界面，H5界面不包含调整字体功能</p>
-<p>2、 BUG确认过程：<br>    由于资讯H5界面包含调整字体功能，在资讯H5界面设置字体最大，打开新的H5界面，发现界面显示异常。</p>
-<p>3、 感受：<br>    相同模块，开发设计代码时一定会把代码封装公用的，所以即使新增一个相似的模块时，没有原模块的功能特性，也要考虑原模块的功能特性是否会影响新增的模块。</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
+  <div class="archive">
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2017-11-21T13:26:10.000Z"><a href="/2017/11/21/难忘的Bug经历/">2017-11-21</a></time>
+            
+              <h1 class="title"><a href="/2017/11/21/难忘的Bug经历/">难忘的Bug经历</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
   </div>
-</article>
-
-
-
-  
-
-  <nav id="pagination">
-  
-  
-  <div class="clearfix"></div>
-</nav>
 
 </div></div>
     <aside id="sidebar" class="alignright">

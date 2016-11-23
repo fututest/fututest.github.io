@@ -47,288 +47,93 @@
 <h2 class="archive-title">Archives</h2>
 
 
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-11-21T13:26:10.000Z"><a href="/2017/11/21/难忘的Bug经历/">2017-11-21</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/11/21/难忘的Bug经历/">难忘的Bug经历</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2 id="MAC市场新增Tab发现Bug分享"><a href="#MAC市场新增Tab发现Bug分享" class="headerlink" title="MAC市场新增Tab发现Bug分享"></a>MAC市场新增Tab发现Bug分享</h2><p><strong>需求分析</strong></p>
-<pre><code>在市场Tab列表新增一列我的自选股，首次出现默认该Tab在第一位。
-</code></pre><p><strong>测试分析</strong></p>
-<pre><code>测试用例里有覆盖移动，调整位置，本身是个很简单的需求。
-</code></pre><p><strong>发现问题的思路</strong></p>
-<pre><code>1.分析开发特征，新手开发，容易出现边界值等常见bug。
-
-2.设计用例：
-不能光是移动位置，尝试移动新增Tab到最前最后位置，退出后再打开。
-移动后，尝试确认其他Tab，特别是原来在最前最后位置的Tab是否正确。
-
-3.测试结果：
-不出所料，新tab移动、退出后打开，是没问题的。
-然而，移动+点击旧tab，程序崩溃了。
-
-4.问题分析：新增Tab后未考虑移动场景，导致移动后切Tab崩溃。
-</code></pre><p><strong>- 感触：</strong></p>
-<pre><code>新人做开发，写的代码会出现许多预料之内的Bug，是曾经开发同学经常会踩的坑，so,
-这是一次意料之内的bug.但印象深刻，毕竟totally under control，哈哈。                                                                                                                                                                                                                                                                 
-</code></pre><hr>
-<p>行情卡顿                                                                                                                                                                                                                                                                      </p>
-<ol>
-<li>Bug描述：<br>新版本更新后，交易员和客户反映，在出现行情波动较大的时候，个股行情会出现卡顿现象。                                                                                                                                                                                            </li>
-<li>Bug确认过程：<br>1)      由于行情的随机性，并不能对问题进行复现。<br>2)      随后采用录屏软件，录制每天的行情变动，根据交易员反馈的卡顿时间，查看录制文件观察现象。<br>3)      最初由于观察卡顿的界面布局与交易员的并不一致。一个屏幕和四个屏幕的区别。记录卡顿的时间与实际时间存在一定的偏差。<br>4)      再后来，搭建了与交易员相同的环境，进行观测。当时真心不知道在哪里能找到卡顿，要看整个录制的视频文件，太痛苦了。<br>5)      随着一天天与交易员的熟悉，与视频的观看规律查找。终于发现了一个规律：在出现连续上涨、下跌1分k线波动较大的时候，会出现时钟静止不动的情况。                                                                                                                              </li>
-<li>bug验证：<br>1)      发现规律后，一切就顺当了。在随后的一个个版本修复之后，再拿到搭建的环境上进行观察测试。<br>2)      确实有了改善，目前也没有收到交易员的反馈。但比对性不强，不能确定比之前好了多少。                                                                                                                                                                                      </li>
-<li>感受：<br><span style="color:green;font-weight:bold"><br>1)      当出现问题时，要了解用户真正的场景，找相似性，找规律，才能更好的将问题重现。便于定位和解决。<br></span>                                                                                                                                                                                                                                                                       <span style="color:green;font-weight:bold"><br>2)      要是有一个可以进行行情回放的功能，就可以在相同的条件下，看到到底优化了多少了。只是测试的条件都是一步步慢慢推进的。<br></span>                                                                                                                                       </li>
-</ol>
-<hr>
-<p>H5界面功能不兼容<br>1、 需求：<br>    新增一个H5界面，H5界面不包含调整字体功能</p>
-<p>2、 BUG确认过程：<br>    由于资讯H5界面包含调整字体功能，在资讯H5界面设置字体最大，打开新的H5界面，发现界面显示异常。</p>
-<p>3、 感受：<br>    相同模块，开发设计代码时一定会把代码封装公用的，所以即使新增一个相似的模块时，没有原模块的功能特性，也要考虑原模块的功能特性是否会影响新增的模块。</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
+  <div class="archive">
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2017-11-21T13:26:10.000Z"><a href="/2017/11/21/难忘的Bug经历/">2017-11-21</a></time>
+            
+              <h1 class="title"><a href="/2017/11/21/难忘的Bug经历/">难忘的Bug经历</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2016-11-23T02:50:02.000Z"><a href="/2016/11/23/lalala/">2016-11-23</a></time>
+            
+              <h1 class="title"><a href="/2016/11/23/lalala/">lalala</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2016-11-23T02:38:14.000Z"><a href="/2016/11/23/一些图/">2016-11-23</a></time>
+            
+              <h1 class="title"><a href="/2016/11/23/一些图/">一些图</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2016-11-22T09:10:09.000Z"><a href="/2016/11/22/MD语法简介/">2016-11-22</a></time>
+            
+              <h1 class="title"><a href="/2016/11/22/MD语法简介/">MD语法简介</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2016-11-21T10:29:13.000Z"><a href="/2016/11/21/标签/">2016-11-21</a></time>
+            
+              <h1 class="title"><a href="/2016/11/21/标签/">标签</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2016-11-21T09:30:18.000Z"><a href="/2016/11/21/功能关联bug/">2016-11-21</a></time>
+            
+              <h1 class="title"><a href="/2016/11/21/功能关联bug/">功能关联bug</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2016-11-21T08:59:39.329Z"><a href="/2016/11/21/8/">2016-11-21</a></time>
+            
+              <h1 class="title"><a href="/2016/11/21/8/"></a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
   </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-11-23T02:50:02.000Z"><a href="/2016/11/23/lalala/">2016-11-23</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/11/23/lalala/">lalala</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">pyg = <span class="string">'ay'</span></div><div class="line"></div><div class="line">original = raw_input(<span class="string">'Enter a word:'</span>)</div><div class="line"></div><div class="line"><span class="keyword">if</span> len(original) &gt; <span class="number">0</span> <span class="keyword">and</span> original.isalpha()==<span class="keyword">True</span>:</div><div class="line">    word=original.lower()</div><div class="line">    first=word[<span class="number">0</span>]</div><div class="line">    new_word=word+first+pyg</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">'empty'</span></div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-11-23T02:38:14.000Z"><a href="/2016/11/23/一些图/">2016-11-23</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/11/23/一些图/">一些图</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p><img src="/lich_king.jpg" alt="arthas"><br><img src="/varian.jpg" alt="varian"></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-11-22T09:10:09.000Z"><a href="/2016/11/22/MD语法简介/">2016-11-22</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/11/22/MD语法简介/">MD语法简介</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p><strong>MarkdownPad</strong> is a full-featured Markdown editor for Windows.</p>
-<h3 id="Built-exclusively-for-Markdown"><a href="#Built-exclusively-for-Markdown" class="headerlink" title="Built exclusively for Markdown"></a>Built exclusively for Markdown</h3><p>Enjoy first-class Markdown support with easy access to  Markdown syntax and convenient keyboard shortcuts.</p>
-<p>Give them a try:</p>
-<ul>
-<li><strong>Bold</strong> (<code>Ctrl+B</code>) and <em>Italic</em> (<code>Ctrl+I</code>)</li>
-<li>Quotes (<code>Ctrl+Q</code>)</li>
-<li>Code blocks (<code>Ctrl+K</code>)</li>
-<li>Headings 1, 2, 3 (<code>Ctrl+1</code>, <code>Ctrl+2</code>, <code>Ctrl+3</code>)</li>
-<li>Lists (<code>Ctrl+U</code> and <code>Ctrl+Shift+O</code>)</li>
-</ul>
-<h3 id="See-your-changes-instantly-with-LivePreview"><a href="#See-your-changes-instantly-with-LivePreview" class="headerlink" title="See your changes instantly with LivePreview"></a>See your changes instantly with LivePreview</h3><p>Don’t guess if your <a href="http://markdownpad.com" target="_blank" rel="external">hyperlink syntax</a> is correct; LivePreview will show you exactly what your document looks like every time you press a key.</p>
-<h3 id="Make-it-your-own"><a href="#Make-it-your-own" class="headerlink" title="Make it your own"></a>Make it your own</h3><p>Fonts, color schemes, layouts and stylesheets are all 100% customizable so you can turn MarkdownPad into your perfect editor.</p>
-<p>###Using Blocks###<br>Use “**”+ enter to Idantify your blocks</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-11-21T10:29:13.000Z"><a href="/2016/11/21/标签/">2016-11-21</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/11/21/标签/">标签</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>有两个标签<br>tags: [标签1,标签2]</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-11-21T09:30:18.000Z"><a href="/2016/11/21/功能关联bug/">2016-11-21</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/11/21/功能关联bug/">功能关联bug</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>新增一个H5界面没有字体调整功能，资讯相关H5界面有字体调整功能，在资讯相关H5界面设置字体最大，打开新增的H5界面，字体显示最大，并且界面显示不正常–<br>单独测试新增的H5界面是无法发现此问题的，测试时把有关联的模块进行功能交互测试，才能发现这个问题</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-11-21T08:59:39.329Z"><a href="/2016/11/21/8/">2016-11-21</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/11/21/8/"></a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>sdasdasd</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-
-  <nav id="pagination">
-  
-  
-    <a href="/archives/page/2/" class="alignright next">Next</a>
-  
-  <div class="clearfix"></div>
-</nav>
 
 </div></div>
     <aside id="sidebar" class="alignright">
